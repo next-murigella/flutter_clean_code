@@ -1,0 +1,21 @@
+{
+    "app_title": "CleanCode Architecture",
+
+    "something_wrong": "Something wrong?",
+
+    "tell_me": "Tell me!",
+
+    "temperature": "Temperature",
+
+    "main_weather": "Short Description",
+
+    "description_weather": "Description",
+
+    "humidity_weather": "Humidity",
+
+    "wind_speed_weather": "Wind Speed",
+
+    "form_validation_double": "Enter a numeric number.",
+
+    "btn_search": "Search"
+}
