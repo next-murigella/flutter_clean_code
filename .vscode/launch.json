@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "MobX Parking",
             "request": "launch",
@@ -16,25 +17,42 @@
             "flutterMode": "profile"
         },
         {
-            "name": "MobX DEV",
+            "name": "Android DEV",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
                 "dev",
                 "-t",
-                "lib/main_dev.dart"
+                "lib/main_dev.dart",
+                "-d",
+                "emulator-5554"
             ]
         },
         {
-            "name": "MobX PROD",
+            "name": "iOS DEV",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "prod",
+                "dev",
                 "-t",
-                "lib/main_prod.dart"
+                "lib/main_dev.dart",
+                "-d",
+                "iPhone 13"
+            ]
+        },
+        {
+            "name": "Mac DEV",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "-t",
+                "lib/main_dev.dart",
+                "-d",
+                "macos"
             ]
         },
         {
@@ -46,6 +64,19 @@
                 "mock",
                 "-t",
                 "lib/main_mock.dart"
+            ]
+        },
+        {
+            "name": "Web DEV",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "mock",
+                "-t",
+                "lib/main_mock.dart",
+                "-d",
+                "chrome"
             ]
         }
     ]

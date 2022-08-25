@@ -1,8 +1,9 @@
 import 'package:flutter_hsc/app/domain/entities/weather_obj.dart';
-import 'package:flutter_hsc/app/domain/use_case/get_parkinglot_use_case.dart';
 import 'package:flutter_hsc/core/dependency_injection/injector.dart';
 import 'package:flutter_hsc/core/use_case/param.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../domain/use_case/get_weather_use_case.dart';
 
 part 'main_view_store.g.dart';
 

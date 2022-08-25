@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hsc/app/data/data_sources/api_impl.dart';
 import 'package:flutter_hsc/app/data/repositories/weather_repository_impl.dart';
 import 'package:flutter_hsc/app/domain/repositories/weather_repository.dart';
-import 'package:flutter_hsc/app/domain/use_case/get_parkinglot_use_case.dart';
 import 'package:flutter_hsc/app/presentation/stores/main_view_store.dart';
 import 'package:flutter_hsc/core/data/secured_storage.dart';
 import 'package:flutter_hsc/flavor_config.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../app/domain/use_case/get_weather_use_case.dart';
 
 final injector = GetIt.instance;
 
