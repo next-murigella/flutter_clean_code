@@ -39,7 +39,7 @@ class WeatherAttributesModel extends WeatherAttributes {
     var _feelsLike = json['main']['feels_like'];
     var _tempMin = json['main']['temp_min'];
     var _tempMax = json['main']['temp_max'];
-    var _humidity = json['main']['humidity'];
+    var _humidity = json['main']['humidity'] ?? 0.0;
     var _wind = WindModel.fromJson(json);
 
     return WeatherAttributesModel(
@@ -55,9 +55,9 @@ class WindModel extends Wind {
   }
 
   factory WindModel.fromJson(Map<String, dynamic> json) {
-    var _speed = json['wind']['speed'];
-    var _deg = json['wind']['deg'];
-    var _gust = json['wind']['gust'];
+    var _speed = json['wind']['speed'] ?? 0.0;
+    var _deg = json['wind']['deg'] ?? 0.0;
+    var _gust = json['wind']['gust'] ?? 0.0;
 
     return WindModel(_speed, _deg, _gust);
   }
