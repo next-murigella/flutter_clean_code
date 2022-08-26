@@ -26,11 +26,12 @@ class MockAPI implements API {
   }
 
   @override
-  Future getWeather(double lat, double lon, String locale) async {
+  Future getWeather(
+      String postalCode, String countryCode, String locale, String unit) async {
     await initKey();
     var queryParameters = {
-      'lat': lat.toString(),
-      'lon': lon.toString(),
+      'units': unit,
+      'zip': postalCode + "," + countryCode,
       'lang': locale,
       'appid': apiKey
     };

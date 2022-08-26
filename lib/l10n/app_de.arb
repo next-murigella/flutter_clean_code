@@ -17,5 +17,7 @@
 
     "form_validation_double": "Gebe eine numerische Zahl ein.",
 
-    "btn_search": "Suchen"
+    "btn_search": "Suchen",
+
+    "hint_text": "Postleitzahl"
 }

@@ -4,5 +4,5 @@ import 'package:flutter_hsc/core/error/error.dart';
 
 abstract class WeatherRepository {
   Future<Either<Failure, WeatherEntity>> getWeather(
-      double lat, double lon, String locale);
+      String postalCode, String countryCode, String locale, String unit);
 }

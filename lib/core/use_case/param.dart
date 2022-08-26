@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class WeatherParam extends Equatable {
-  final double lat;
-  final double lon;
+  final String unit;
+  final String postalCode;
+  final String countryCode;
   final String locale;
 
-  const WeatherParam(this.lat, this.lon, this.locale);
+  const WeatherParam(this.postalCode, this.countryCode, this.locale, this.unit);
 
   @override
-  List<Object> get props => [lat, lon, locale];
+  List<Object> get props => [postalCode, countryCode, locale, unit];
 }

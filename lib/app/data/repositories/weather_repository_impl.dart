@@ -29,9 +29,10 @@ class WeatherRepositoryImplementation implements WeatherRepository {
 
   @override
   Future<Either<Failure, WeatherEntity>> getWeather(
-      double lat, double lon, String locale) async {
+      String postalCode, String countryCode, String locale, String unit) async {
     try {
-      return Right(await dataSource?.getWeather(lat, lon, locale));
+      return Right(
+          await dataSource?.getWeather(postalCode, countryCode, locale, unit));
     } catch (e) {
       if (kDebugMode) {
         print(e);

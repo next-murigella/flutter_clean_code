@@ -38,8 +38,8 @@ class MainView extends StatelessWidget {
             body: Observer(builder: (_) {
               switch (_mainViewStore.mainViewState) {
                 case MainViewState.startup:
-                  _mainViewStore.fetchWeather(49.013432, 12.101624,
-                      Localizations.localeOf(context).languageCode);
+                  _mainViewStore.fetchWeather(
+                      "93049", Localizations.localeOf(context).languageCode);
                   return const Center(child: CircularProgressIndicator());
                 case MainViewState.loaded:
                   return Column(
@@ -68,11 +68,14 @@ class MainView extends StatelessWidget {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.6,
                               child: TextFormField(
-                                decoration: const InputDecoration(
-                                    alignLabelWithHint: true,
-                                    border: OutlineInputBorder(),
-                                    hintText: "lat",
-                                    labelText: "Lat"),
+                                decoration: new InputDecoration(
+                                  alignLabelWithHint: true,
+                                  border: OutlineInputBorder(),
+                                  hintText:
+                                      AppLocalizations.of(context)!.hint_text,
+                                  labelText:
+                                      AppLocalizations.of(context)!.hint_text,
+                                ),
                                 validator: (coordinate) {
                                   if (!isNumeric(coordinate)) {
                                     return AppLocalizations.of(context)!
@@ -81,34 +84,12 @@ class MainView extends StatelessWidget {
                                   return null;
                                 },
                                 onChanged: (newText) {
-                                  _mainViewStore.lat =
-                                      double.tryParse(newText) ?? 0.0;
+                                  _mainViewStore.postalCode = newText;
                                 },
                               ),
                             ),
                             const SizedBox(
                               height: 10,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              child: TextFormField(
-                                decoration: const InputDecoration(
-                                    alignLabelWithHint: true,
-                                    border: OutlineInputBorder(),
-                                    hintText: "lon",
-                                    labelText: "Lon"),
-                                validator: (coordinate) {
-                                  if (!isNumeric(coordinate)) {
-                                    return AppLocalizations.of(context)!
-                                        .form_validation_double;
-                                  }
-                                  return null;
-                                },
-                                onChanged: (newText) {
-                                  _mainViewStore.lon =
-                                      double.tryParse(newText) ?? 0.0;
-                                },
-                              ),
                             ),
                           ],
                         ),
@@ -201,8 +182,7 @@ class MainView extends StatelessWidget {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               _mainViewStore.fetchWeather(
-                                  _mainViewStore.lat,
-                                  _mainViewStore.lon,
+                                  _mainViewStore.postalCode,
                                   Localizations.localeOf(context).languageCode);
                             }
                           },

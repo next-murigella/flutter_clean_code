@@ -37,7 +37,7 @@ void initConfig(
   SecuredStorageHandler securedStorageHandler =
       injector<SecuredStorageHandler>();
   SecuredStorageItem apiKey =
-      SecuredStorageItem("api_key", "586faff075d533966ceb6c33ec4d45e4");
+      SecuredStorageItem("api_key", "74a98c567b3ed77e5bee777edfdaaf1a");
   securedStorageHandler.writeSecureData(apiKey);
   FlavorConfig flavorConfig = injector<FlavorConfig>();
   flavorConfig.color = color;

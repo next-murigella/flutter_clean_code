@@ -17,5 +17,7 @@
 
     "form_validation_double": "Enter a numeric number.",
 
-    "btn_search": "Search"
+    "btn_search": "Search",
+
+    "hint_text": "Postal Code"
 }

@@ -13,10 +13,11 @@ abstract class _MainViewStore with Store {
   final GetWeatherUseCase _getWeatherUseCase = injector<GetWeatherUseCase>();
 
   @observable
-  late double lat;
+  late String postalCode = "";
 
-  @observable
-  late double lon;
+  String countryCode = "de";
+
+  String unit = "metric";
 
   @observable
   WeatherEntity? weather;
@@ -25,9 +26,10 @@ abstract class _MainViewStore with Store {
   MainViewState mainViewState = MainViewState.startup;
 
   @action
-  Future fetchWeather(double lat, double lon, String locale) async {
+  Future fetchWeather(String postalCode, String locale) async {
     mainViewState = MainViewState.loading;
-    var result = await _getWeatherUseCase(WeatherParam(lat, lon, locale));
+    var result = await _getWeatherUseCase(
+        WeatherParam(postalCode, countryCode, locale, unit));
     result.fold((l) => null, (r) => weather = r);
     mainViewState = MainViewState.loaded;
   }

@@ -1,3 +1,4 @@
 abstract class API {
-  Future<dynamic> getWeather(double lat, double lon, String locale);
+  Future<dynamic> getWeather(
+      String postalCode, String countryCode, String locale, String unit);
 }
