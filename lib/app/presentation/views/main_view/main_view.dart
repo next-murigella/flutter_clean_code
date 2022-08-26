@@ -46,19 +46,27 @@ class MainView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              _mainViewStore.weather?.name ?? "",
-                              style: Theme.of(context).textTheme.headlineLarge,
-                            ),
-                            Image.network(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            _mainViewStore.weather?.name ?? "",
+                            style: Theme.of(context).textTheme.headline1,
+                          ),
+                          Container(
+                            width: 70,
+                            margin: EdgeInsets.only(top: 20, bottom: 14),
+                            padding: EdgeInsets.all(0),
+                            decoration: BoxDecoration(
+                                color: Colors.blueGrey[100],
+                                shape: BoxShape.circle),
+                            child: Image.network(
                                 'http://openweathermap.org/img/wn/${_mainViewStore.weather?.icon}@2x.png'),
-                          ],
-                        ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
                       ),
                       Form(
                         key: _formKey,
@@ -66,7 +74,7 @@ class MainView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.6,
+                              width: MediaQuery.of(context).size.width * 0.7,
                               child: TextFormField(
                                 decoration: new InputDecoration(
                                   alignLabelWithHint: true,
@@ -94,21 +102,32 @@ class MainView extends StatelessWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Card(
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: 40,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                AppLocalizations.of(context)!.temperature,
-                                style: Theme.of(context).textTheme.bodyLarge,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  AppLocalizations.of(context)!.temperature,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
                               ),
-                              Text(
-                                _mainViewStore.weather?.weatherAttributes?.temp
-                                        .toString() ??
-                                    "",
-                                overflow: TextOverflow.ellipsis,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  _mainViewStore
+                                          .weather?.weatherAttributes?.temp
+                                          .toString() ??
+                                      "",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             ],
                           ),
@@ -116,17 +135,26 @@ class MainView extends StatelessWidget {
                       ),
                       Card(
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: 40,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                AppLocalizations.of(context)!.main_weather,
-                                style: Theme.of(context).textTheme.bodyLarge,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  AppLocalizations.of(context)!.main_weather,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
                               ),
-                              Text(
-                                _mainViewStore.weather?.main.toString() ?? "",
-                                overflow: TextOverflow.ellipsis,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  _mainViewStore.weather?.description
+                                          .toString() ??
+                                      "",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             ],
                           ),
@@ -134,20 +162,28 @@ class MainView extends StatelessWidget {
                       ),
                       Card(
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: 40,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                AppLocalizations.of(context)!.humidity_weather,
-                                style: Theme.of(context).textTheme.bodyLarge,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .humidity_weather,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
                               ),
-                              Text(
-                                _mainViewStore
-                                        .weather?.weatherAttributes?.humidity
-                                        .toString() ??
-                                    "",
-                                overflow: TextOverflow.ellipsis,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  _mainViewStore
+                                          .weather?.weatherAttributes?.humidity
+                                          .toString() ??
+                                      "",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             ],
                           ),
@@ -155,21 +191,28 @@ class MainView extends StatelessWidget {
                       ),
                       Card(
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: 40,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                AppLocalizations.of(context)!
-                                    .wind_speed_weather,
-                                style: Theme.of(context).textTheme.bodyLarge,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .wind_speed_weather,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
                               ),
-                              Text(
-                                _mainViewStore
-                                        .weather?.weatherAttributes?.wind?.speed
-                                        .toString() ??
-                                    "",
-                                overflow: TextOverflow.ellipsis,
+                              Container(
+                                margin: EdgeInsets.all(8),
+                                child: Text(
+                                  _mainViewStore.weather?.weatherAttributes
+                                          ?.wind?.speed
+                                          .toString() ??
+                                      "",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             ],
                           ),

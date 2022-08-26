@@ -26,6 +26,10 @@ ThemeData createDarkModeTheme() {
       brightness: Brightness.dark,
       primarySwatch: createMaterialColor(Colors.black),
       primaryColor: Colors.black,
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+      ),
       fontFamily: 'Montserrat',
       textTheme: TextTheme(
         headline1: GoogleFonts.montserrat(fontSize: 24, color: Colors.white),
